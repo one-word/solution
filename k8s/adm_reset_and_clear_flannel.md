@@ -1,3 +1,5 @@
+k8s reset and flannel reset.
+---
 ```
 kubeadm reset
 systemctl stop kubelet
