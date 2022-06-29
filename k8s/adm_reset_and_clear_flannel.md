@@ -13,7 +13,7 @@ ifconfig del cni0
 ip link del flannel.1
 ip link del cni0
 
-yum install bridge-utils
+yum install -y bridge-utils
 brctl delbr flannel.1
 brctl delbr cni0
 rm -rf /var/lib/cni/flannel/*
