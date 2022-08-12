@@ -1,0 +1,7 @@
+Q:when connected pod failed.
+
+A:
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -F
