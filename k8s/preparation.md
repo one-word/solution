@@ -43,7 +43,7 @@ systemctl start docker
 systemctl enable docker
 tee /etc/docker/daemon.json <<-'EOF' 
 { 
-	"registry-mirrors": ["your repo addr"],
+  "registry-mirrors": ["your repo addr"],
   "exec-opts": ["native.cgroupdriver=systemd"]
 }
 EOF
