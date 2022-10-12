@@ -76,3 +76,9 @@ echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
 echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
 iptables -F
 ```
+10.alter hostname
+```
+hostnamectl set-hostname node1
+bash
+systemctl restart network
+```
