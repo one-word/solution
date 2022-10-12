@@ -1,9 +1,11 @@
+1.turn off the firewall
 ```
 systemctl stop firewalld
 systemctl disable firewalld
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux 
 setenforce 0
 ```
+2.replace mirror source
 ```
 yum install -y epel-release
 yum install -y wget
@@ -13,6 +15,7 @@ wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 yum clean all
 yum makecache
 ```
+3.add kubenetes mirron source
 ```
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -25,15 +28,18 @@ gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors
 exclude=kubelet kubeadm kubectl
 EOF
 ```
+4.install kubernetes' utils
 ```
 yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 systemctl enable --now kubelet
 ```
+5.add hosts
 ```
 cat <<EOF >>/etc/hosts 
 10.10.11.241 master
 EOF
 ```
+6.install docker
 ```
 yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 
@@ -51,6 +57,7 @@ EOF
 systemctl daemon-reload
 systemctl restart docker
 ```
+7.install cri-docker
 https://github.com/Mirantis/cri-dockerd
 ```
 rpm -ivh https://github.com/Mirantis/cri-dockerd/releases/download/v0.2.6/cri-dockerd-0.2.6-3.el7.x86_64.rpm
