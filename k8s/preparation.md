@@ -57,5 +57,5 @@ rpm -ivh https://github.com/Mirantis/cri-dockerd/releases/download/v0.2.6/cri-do
 vi /lib/systemd/system/cri-docker.service
   ExecStart=/usr/bin/cri-dockerd --container-runtime-endpoint fd:// --pod-infra-container-image registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.8
 systemctl daemon-reload
-systemctl restart cir-docker
+systemctl restart cri-docker
 ```
