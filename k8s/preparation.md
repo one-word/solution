@@ -10,6 +10,8 @@ yum install -y wget
 mv /etc/yum.repos.d /etc/yum.repos.d.backup
 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+yum clean all
+yum makecache
 ```
 ```
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
@@ -31,4 +33,21 @@ systemctl enable --now kubelet
 cat <<EOF >>/etc/hosts 
 10.10.11.241 master
 EOF
+```
+```
+yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 
+yum makecache fast
+yum -y install docker-ce
+systemctl start docker
+systemctl enable docker
+tee /etc/docker/daemon.json <<-'EOF' 
+{ 
+	"registry-mirrors": ["your repo addr"],
+  "exec-opts": ["native.cgroupdriver=systemd"]
+}
+EOF
+
+systemctl daemon-reload
+systemctl restart docker
 ```
