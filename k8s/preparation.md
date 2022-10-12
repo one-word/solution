@@ -66,11 +66,11 @@ systemctl daemon-reload
 systemctl restart cri-docker
 systemctl enable cri-docker
 ```
-8.关闭swap分区
+8.shutdown swap
 ```
 swapoff -a
 ```
-9.网桥配置1
+9.iptables 1
 ```
 echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
 echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
