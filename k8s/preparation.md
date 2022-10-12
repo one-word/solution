@@ -72,6 +72,10 @@ swapoff -a
 ```
 9.iptables 1
 ```
+yum install bridge-utils -y
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P INPUT ACCEPT
 echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
 echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
 iptables -F
