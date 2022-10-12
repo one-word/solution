@@ -66,3 +66,7 @@ systemctl daemon-reload
 systemctl restart cri-docker
 systemctl enable cri-docker
 ```
+8.关闭swap分区
+```
+swapoff -a
+```
