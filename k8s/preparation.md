@@ -25,6 +25,10 @@ EOF
 ```
 ```
 yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
-
 systemctl enable --now kubelet
+```
+```
+cat <<EOF >>/etc/hosts 
+10.10.11.241 master
+EOF
 ```
