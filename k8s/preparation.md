@@ -58,4 +58,5 @@ vi /lib/systemd/system/cri-docker.service
   ExecStart=/usr/bin/cri-dockerd --container-runtime-endpoint fd:// --pod-infra-container-image registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.8
 systemctl daemon-reload
 systemctl restart cri-docker
+systemctl enable cri-docker
 ```
