@@ -70,3 +70,9 @@ systemctl enable cri-docker
 ```
 swapoff -a
 ```
+9.网桥配置1
+```
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
+iptables -F
+```
