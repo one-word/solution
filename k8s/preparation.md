@@ -78,6 +78,7 @@ iptables -P FORWARD ACCEPT
 iptables -P INPUT ACCEPT
 echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
 echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
+echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -F
 ```
 10.alter hostname
