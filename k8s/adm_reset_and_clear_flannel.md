@@ -22,4 +22,5 @@ ip link delete cni0
 rm -rf /var/lib/cni/network/cni0/*
 rm -rf /etc/cni/net.d/*
 rm -rf /run/flannel/*
+swapoff -a
 ```
