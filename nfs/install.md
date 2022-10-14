@@ -6,4 +6,5 @@ systemctl start rpcbind
 systemctl start nfs
 vi /etc/exports
   /data/ 192.168.0.0/24(rw,sync,no_root_squash,no_all_squash)
+exportfs -r
 ```
