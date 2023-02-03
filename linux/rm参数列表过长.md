@@ -1,3 +1,3 @@
 '''
-find . -name "*" | xargs rm -rf '*' 
+ls | xargs -n 90 rm -rf 
 '''
